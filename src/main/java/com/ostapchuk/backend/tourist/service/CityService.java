@@ -7,11 +7,11 @@ import com.ostapchuk.backend.tourist.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import static com.ostapchuk.backend.tourist.util.Const.EXCEPTION_MSG;
+
 @Service
 @RequiredArgsConstructor
 public class CityService {
-
-    public static final String EXCEPTION_MSG = "Could not find any information about the city with the given name: ";
 
     private final CityRepository cityRepository;
 

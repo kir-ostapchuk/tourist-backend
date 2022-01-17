@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public interface CityRepository extends MongoRepository<City, Long> {
 
-    Optional<City> findByName(String name);
+    Optional<City> findByNameIgnoreCase(String name);
 
     void deleteByName(String name);
 }

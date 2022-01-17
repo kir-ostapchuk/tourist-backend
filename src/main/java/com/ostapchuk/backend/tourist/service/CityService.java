@@ -16,7 +16,7 @@ public class CityService {
     private final CityRepository cityRepository;
 
     public String findByName(final String name) {
-        return cityRepository.findByName(name)
+        return cityRepository.findByNameIgnoreCase(name)
                              .map(City::getMessage)
                              .orElseThrow(() -> new EntityNotFoundException(EXCEPTION_MSG));
     }
@@ -30,7 +30,7 @@ public class CityService {
     }
 
     public void update(final CityDto cityDto) {
-        final City city = cityRepository.findByName(cityDto.getName())
+        final City city = cityRepository.findByNameIgnoreCase(cityDto.getName())
                                         .orElseThrow(() -> new EntityNotFoundException(EXCEPTION_MSG));
         city.setMessage(cityDto.getMessage());
         cityRepository.save(city);
